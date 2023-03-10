@@ -1,0 +1,70 @@
+LINK UTEIS:
+criar projeto:
+	https://start.spring.io/
+
+
+
+-----------------------------------------------------------------------------------
+Nome do servidor de toda maquina:
+		http://localhost:8080
+
+
+Notações são com @
+
+@RestController
+	Aplicação Principal(de inicialização)
+
+@GetMapping
+	Diz o caminho(url) que será usada
+
+
+@SpringBootApplication  //padrão
+@RestController		//Aplicação Principal
+public class DemoApplication {			//Nome do arquivo principal do pacote
+    public static void main(String[] args) {	
+      SpringApplication.run(DemoApplication.class, args);   //menage -> faz o runserver do sistema
+    }
+    @GetMapping("/hello")    // diz que na proxima classe deverá ser usada a URL(/hello)
+    public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
+      return String.format("Hello %s!", name);
+    }
+}
+
+*Não precisa o nome da classe ser o mesmo da URL, basta que anotação esteja acima da classe*
+
+
+
+return String.format("Hello %s!", name); -> irá retornar na tela: Hello (Nome Inserido)!
+
+(usar postman para rodar o servidor de forma local mais simples)
+
+
+HELLO WORLD FACIL:
+
+@SpringBootApplication
+   @RestController
+       public class DemoApplication {
+
+   @GetMapping("/helloworld")   
+       public String hello() {
+	    return"Hello World!";
+       }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
